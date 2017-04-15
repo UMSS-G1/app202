@@ -38,6 +38,11 @@ export class MyApp {
       title: 'Buttons',
       icon: 'beer',
       component: 'ButtonsPage'
+    },
+    {
+      title: 'Lista',
+      icon: 'list',
+      component: 'ListsPage'
     }
   ];
 
