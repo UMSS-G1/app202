@@ -20,7 +20,7 @@ export class MyApp {
     {
       title: 'Tasks',
       icon: 'list',
-      component: 'TasksPage'
+      component: 'TabsPage'
     },
     {
       title: 'Albums',

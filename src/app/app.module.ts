@@ -8,13 +8,25 @@ import { AlbumsService } from '../providers/albums-service';
 
 import { MyApp } from './app.component';
 
+const ionicConfig = {
+  tabsHideOnSubPages: true,
+  platforms:{
+    ios:{
+      tabsPlacement: 'bottom',
+    },
+    android:{
+      tabsPlacement: 'top',
+    }
+  }
+};
+
 @NgModule({
   declarations: [
     MyApp
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, ionicConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
