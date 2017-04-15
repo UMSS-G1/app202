@@ -10,8 +10,13 @@ export class TabsPage {
 
   tab1: string = 'TasksPage';
   tab2: string = 'TasksDonePage';
+  index: string = '0';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
+    this.index = this.navParams.get('index');
   }
 
   ionViewDidLoad() {

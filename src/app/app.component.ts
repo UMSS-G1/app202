@@ -20,12 +20,24 @@ export class MyApp {
     {
       title: 'Tasks',
       icon: 'list',
-      component: 'TabsPage'
+      component: 'TabsPage',
+      index: 0
+    },
+    {
+      title: 'Tasks Done',
+      icon: 'list',
+      component: 'TabsPage',
+      index: 1
     },
     {
       title: 'Albums',
       icon: 'camera',
       component: 'AlbumsPage'
+    },
+    {
+      title: 'Buttons',
+      icon: 'beer',
+      component: 'ButtonsPage'
     }
   ];
 
@@ -39,7 +51,13 @@ export class MyApp {
   }
 
   openPage( page ){
-    this.navMaster.setRoot( page.component );
+    if(page.index !== null){
+      this.navMaster.setRoot( page.component ,{
+        index: page.index
+      });
+    }else{
+      this.navMaster.setRoot( page.component );
+    }
   }
 
   logout(){
