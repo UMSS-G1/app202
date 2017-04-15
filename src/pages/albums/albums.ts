@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { AlbumsService } from '../../providers/albums-service';
 
 @IonicPage()
 @Component({
@@ -9,11 +10,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AlbumsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  albums: any[] = [];
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public albumsService: AlbumsService
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Albums');
+    this.albums = this.albumsService.getAll();
+  }
+
+  goToGalleryPage( album ){
+    this.navCtrl.push('GalleryPage', {
+      album: album,
+    });
   }
 
 }

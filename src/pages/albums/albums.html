@@ -16,6 +16,12 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-card tappable *ngFor="let album of albums" (click)="goToGalleryPage( album )">
+    <img [src]="album.cover" alt="">
+    <ion-card-header>
+      {{ album.title }}
+      <ion-badge item-right> {{ album.gallery.length }}</ion-badge>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

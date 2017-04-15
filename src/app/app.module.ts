@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { AlbumsService } from '../providers/albums-service';
+
 import { MyApp } from './app.component';
 
 @NgModule({
@@ -21,6 +23,7 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
+    AlbumsService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
