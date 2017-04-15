@@ -9,8 +9,25 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp {
 
   @ViewChild(Nav) navMaster: Nav;
-
   rootPage:any = 'TutorialPage';
+
+  pages: any[] = [
+    {
+      title: 'Home',
+      icon: 'home',
+      component: 'HomePage'
+    },
+    {
+      title: 'Tasks',
+      icon: 'list',
+      component: 'TasksPage'
+    },
+    {
+      title: 'Albums',
+      icon: 'camera',
+      component: 'AlbumsPage'
+    }
+  ];
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -21,16 +38,8 @@ export class MyApp {
     });
   }
 
-  openHomePage(){
-    this.navMaster.setRoot('HomePage');
-  }
-
-  openTaskPage(){
-    this.navMaster.setRoot('TasksPage');
-  }
-
-  openAlbumsPage(){
-    this.navMaster.setRoot('AlbumsPage');
+  openPage( page ){
+    this.navMaster.setRoot( page.component );
   }
 
   logout(){
