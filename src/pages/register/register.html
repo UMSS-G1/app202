@@ -1,18 +1,104 @@
-<!--
-  Generated template for the Register page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>register</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-   <button ion-button (click)="goToHomePage()">Home</button>
+<ion-content>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Digite su nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Nombre:</ion-label>
+        <ion-input type="text" placeholder="Digite su nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Apellidojsdfsjdfasjdfl:</ion-label>
+        <ion-input placeholder="Digite su nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Username:</ion-label>
+        <ion-input placeholder="Digite su nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Age:</ion-label>
+        <ion-input type="number" placeholder="Digite su nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Telefono:</ion-label>
+        <ion-input type="tel" placeholder="Digite su nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Telefono:</ion-label>
+        <ion-input type="date"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Telefono:</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+      <ion-list-header>
+        Sabores favoritos
+      </ion-list-header>
+      <ion-item>
+        <ion-label>Chontaduro</ion-label>
+        <ion-checkbox color="danger"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fresa</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Borojo</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Uchuva</ion-label>
+        <ion-checkbox></ion-checkbox>
+      </ion-item>
+       <ion-list-header>
+        Genero
+      </ion-list-header>
+      <div radio-group>
+        <ion-item>
+          <ion-label>Masculino</ion-label>
+          <ion-radio></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Femenimo</ion-label>
+          <ion-radio color="dark"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Otro</ion-label>
+          <ion-radio></ion-radio>
+        </ion-item>
+      </div>
+      <ion-item>
+        <ion-label>Fecha de aniversario</ion-label>
+        <ion-datetime></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-range pin min="0" max="10" step="2">
+          <ion-label range-left>0</ion-label>
+          <ion-label range-right>10</ion-label>
+        </ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-label>Peliculas</ion-label>
+        <ion-select multiple="true">
+          <ion-option value="1">Terminator</ion-option>
+          <ion-option value="2">Rapido y fur n</ion-option>
+          <ion-option value="3">Matrix</ion-option>
+          <ion-option value="4">harry po...</ion-option>
+          <ion-option value="5">Narnia</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Quieres reciir correos</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </form>
+  <button ion-button (click)="goToHomePage()">Home</button>
 </ion-content>
