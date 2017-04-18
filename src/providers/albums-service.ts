@@ -15,63 +15,183 @@ export class AlbumsService {
         gallery:[
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'colombia'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'bolivia'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'peru'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'argentina'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'chile'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'brasil'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'uruguay'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'venezuela'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'costa rica'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'paraguay'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'ecuador'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'panama'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'mexico'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'suiza'
           },
           {
             img: 'http://placehold.it/400x400',
-            title: 'img 1'
+            title: 'guatemala'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'colombia'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'bolivia'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'peru'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'argentina'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'chile'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'brasil'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'uruguay'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'venezuela'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'costa rica'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'paraguay'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'ecuador'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'panama'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'mexico'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'suiza'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'guatemala'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'colombia'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'bolivia'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'peru'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'argentina'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'chile'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'brasil'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'uruguay'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'venezuela'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'costa rica'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'paraguay'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'ecuador'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'panama'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'mexico'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'suiza'
+          },
+          {
+            img: 'http://placehold.it/400x400',
+            title: 'guatemala'
           },
         ]
       },
