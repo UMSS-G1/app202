@@ -43,6 +43,11 @@ export class MyApp {
       title: 'Lista',
       icon: 'list',
       component: 'ListsPage'
+    },
+    {
+      title: 'Slides',
+      icon: 'people',
+      component: 'SlidesPage'
     }
   ];
 
