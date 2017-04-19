@@ -8,7 +8,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 *ngFor="let picture of gallery">
+      <ion-col col-6 col-md-3 *ngFor="let picture of gallery">
         <img [src]="picture.img" alt="imagen">
         <p>{{ picture.title }}</p>
       </ion-col>
