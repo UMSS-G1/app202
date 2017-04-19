@@ -8,6 +8,11 @@
 
   <ion-navbar>
     <ion-title>login</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openPopover( $event )">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -17,5 +22,8 @@
   <button ion-button block (click)="showToast()">Show toast</button>
   <button ion-button block (click)="showAlert()">Show alert</button>
   <button ion-button block (click)="showConfirm()">Show confirm</button>
+  <button ion-button block (click)="showPrompt()">Show prompt</button>
+  <button ion-button block (click)="showActionSheet()">Show action</button>
+  <button ion-button block (click)="openModal()">modal</button>
   <button ion-button (click)="goToHomePage()">Home</button>
 </ion-content>
