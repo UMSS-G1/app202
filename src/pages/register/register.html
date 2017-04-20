@@ -8,85 +8,90 @@
   <form [formGroup]="loginForm" (ngSubmit)="saveData()">
     <ion-list>
       <ion-item>
-        <ion-input [ngModelOptions]="{standalone: true}" [(ngModel)]="data.name" placeholder="Digite su nombre"></ion-input>
+         <ion-label fixed>nickname*:</ion-label>
+        <ion-input formControlName="nickname" placeholder="Digite su nickname"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginForm.get('nickname').errors && loginForm.get('nickname').dirty">
+        <p *ngIf="loginForm.get('nickname').hasError('required')" ion-text color="danger">Este campo es requerido</p>
+        <p *ngIf="loginForm.get('nickname').hasError('minlength')" ion-text color="danger">Este campo minimo debe ser de 4 carcsasas</p>
       </ion-item>
       <ion-item>
         <ion-label fixed>Nombre:</ion-label>
-        <ion-input [ngModelOptions]="{standalone: true}" [(ngModel)]="data.lastname" type="text" placeholder="Digite su nombre"></ion-input>
+        <ion-input formControlName="name" placeholder="Digite su nombre"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label fixed>Apellidojsdfsjdfasjdfl:</ion-label>
-        <ion-input placeholder="Digite su nombre"></ion-input>
+        <ion-label fixed>Apellido:</ion-label>
+        <ion-input formControlName="lastname" placeholder="Digite su apellido"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label stacked>Username:</ion-label>
-        <ion-input placeholder="Digite su nombre"></ion-input>
+        <ion-label stacked>username:</ion-label>
+        <ion-input formControlName="username" placeholder="Digite su usermae"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label stacked>Age:</ion-label>
-        <ion-input type="number" placeholder="Digite su nombre"></ion-input>
+        <ion-input formControlName="age" type="number" placeholder="Digite su edad"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label stacked>Telefono:</ion-label>
-        <ion-input type="tel" placeholder="Digite su nombre"></ion-input>
+        <ion-input formControlName="phone" type="tel" placeholder="Digite su telefono"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Telefono:</ion-label>
-        <ion-input type="date"></ion-input>
+        <ion-label floating>date:</ion-label>
+        <ion-input formControlName="date" type="date"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label stacked>Telefono:</ion-label>
-        <ion-textarea></ion-textarea>
+        <ion-label stacked>Biografia:</ion-label>
+        <ion-textarea formControlName="bio"></ion-textarea>
       </ion-item>
       <ion-list-header>
         Sabores favoritos
       </ion-list-header>
       <ion-item>
         <ion-label>Chontaduro</ion-label>
-        <ion-checkbox color="danger"></ion-checkbox>
+        <ion-checkbox formControlName="chontaduro" color="danger"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label>Fresa</ion-label>
-        <ion-checkbox></ion-checkbox>
+        <ion-checkbox formControlName="fresa"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label>Borojo</ion-label>
-        <ion-checkbox></ion-checkbox>
+        <ion-checkbox formControlName="borojo"></ion-checkbox>
       </ion-item>
       <ion-item>
         <ion-label>Uchuva</ion-label>
-        <ion-checkbox></ion-checkbox>
+        <ion-checkbox formControlName="uchuva"></ion-checkbox>
       </ion-item>
        <ion-list-header>
         Genero
       </ion-list-header>
-      <div radio-group>
+      <div radio-group formControlName="genero">
         <ion-item>
           <ion-label>Masculino</ion-label>
-          <ion-radio></ion-radio>
+          <ion-radio value="M"></ion-radio>
         </ion-item>
         <ion-item>
           <ion-label>Femenimo</ion-label>
-          <ion-radio color="dark"></ion-radio>
+          <ion-radio value="F" color="dark"></ion-radio>
         </ion-item>
         <ion-item>
           <ion-label>Otro</ion-label>
-          <ion-radio></ion-radio>
+          <ion-radio value="O"></ion-radio>
         </ion-item>
       </div>
       <ion-item>
         <ion-label>Fecha de aniversario</ion-label>
-        <ion-datetime></ion-datetime>
+        <ion-datetime formControlName="anirversary"></ion-datetime>
       </ion-item>
       <ion-item>
-        <ion-range pin min="0" max="10" step="2">
+        <ion-range formControlName="children" pin min="0" max="10" step="2">
           <ion-label range-left>0</ion-label>
           <ion-label range-right>10</ion-label>
         </ion-range>
       </ion-item>
       <ion-item>
         <ion-label>Peliculas</ion-label>
-        <ion-select multiple="true">
+        <ion-select formControlName="movies" multiple="true">
           <ion-option value="1">Terminator</ion-option>
           <ion-option value="2">Rapido y fur n</ion-option>
           <ion-option value="3">Matrix</ion-option>
@@ -96,11 +101,11 @@
       </ion-item>
       <ion-item>
         <ion-label>Quieres reciir correos</ion-label>
-        <ion-toggle></ion-toggle>
+        <ion-toggle formControlName="mail"></ion-toggle>
       </ion-item>
     </ion-list>
     <div padding>
-      <button ion-button type="submit">Save</button>
+      <button [disabled]="loginForm.invalid" ion-button type="submit">Save</button>
       <button ion-button type="button">Tomar foto</button>
     </div>
   </form>

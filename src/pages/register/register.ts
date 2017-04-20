@@ -18,9 +18,33 @@ export class RegisterPage {
     public formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
-      name: ['nicolas'],
-      lastname: ['molina'],
+      nickname: ['', [Validators.required, Validators.minLength(4)]],
+      name: [''],
+      lastname: [''],
+      username: [''],
+      age: [''],
+      phone: [''],
+      date: [''],
+      bio: [''],
+      chontaduro: [false],
+      fresa: [false],
+      borojo: [false],
+      uchuva: [false],
+      genero: [''],
+      anirversary: [''],
+      children: [''],
+      movies: [''],
+      mail: [false],
     });
+
+    let obj = {
+      name: 'nicolas',
+      mail: true,
+      genero: 'M',
+      children: 9
+    }
+
+    this.loginForm.patchValue( obj );
   }
 
   ionViewDidLoad() {
@@ -33,6 +57,7 @@ export class RegisterPage {
 
   saveData(){
     console.log(this.data);
+    console.log(this.loginForm.value);
   }
 
 }
