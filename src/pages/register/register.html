@@ -14,10 +14,23 @@
       <ion-item *ngIf="loginForm.get('nickname').errors && loginForm.get('nickname').dirty">
         <p *ngIf="loginForm.get('nickname').hasError('required')" ion-text color="danger">Este campo es requerido</p>
         <p *ngIf="loginForm.get('nickname').hasError('minlength')" ion-text color="danger">Este campo minimo debe ser de 4 carcsasas</p>
+        <p *ngIf="loginForm.get('nickname').hasError('maxlength')" ion-text color="danger">no maximo a 10 caracteres</p>
       </ion-item>
       <ion-item>
         <ion-label fixed>Nombre:</ion-label>
         <ion-input formControlName="name" placeholder="Digite su nombre"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginForm.get('name').errors && loginForm.get('name').dirty">
+        <p *ngIf="loginForm.get('name').hasError('required')" ion-text color="danger">El campo es requerido</p>
+        <p *ngIf="loginForm.get('name').hasError('pattern')" ion-text color="danger">No es un nombre valido</p>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Correo:</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginForm.get('email').errors && loginForm.get('email').dirty">
+        <p *ngIf="loginForm.get('email').hasError('required')" ion-text color="danger">El campo es requerido</p>
+        <p *ngIf="loginForm.get('email').hasError('email')" ion-text color="danger">el email no es valido</p>
       </ion-item>
       <ion-item>
         <ion-label fixed>Apellido:</ion-label>

@@ -18,8 +18,9 @@ export class RegisterPage {
     public formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
-      nickname: ['', [Validators.required, Validators.minLength(4)]],
-      name: [''],
+      nickname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
+      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
+      email: ['',[Validators.required, Validators.email]],
       lastname: [''],
       username: [''],
       age: [''],
