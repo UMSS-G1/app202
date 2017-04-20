@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the Register page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -14,7 +9,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  data: any = {};
+  loginForm: FormGroup;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public formBuilder: FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group({
+      name: ['nicolas'],
+      lastname: ['molina'],
+    });
   }
 
   ionViewDidLoad() {
@@ -23,6 +29,10 @@ export class RegisterPage {
 
   goToHomePage(){
     this.navCtrl.setRoot('HomePage');
+  }
+
+  saveData(){
+    console.log(this.data);
   }
 
 }

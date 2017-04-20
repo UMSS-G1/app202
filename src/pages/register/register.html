@@ -5,14 +5,14 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="loginForm" (ngSubmit)="saveData()">
     <ion-list>
       <ion-item>
-        <ion-input placeholder="Digite su nombre"></ion-input>
+        <ion-input [ngModelOptions]="{standalone: true}" [(ngModel)]="data.name" placeholder="Digite su nombre"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Nombre:</ion-label>
-        <ion-input type="text" placeholder="Digite su nombre"></ion-input>
+        <ion-input [ngModelOptions]="{standalone: true}" [(ngModel)]="data.lastname" type="text" placeholder="Digite su nombre"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Apellidojsdfsjdfasjdfl:</ion-label>
@@ -99,6 +99,10 @@
         <ion-toggle></ion-toggle>
       </ion-item>
     </ion-list>
+    <div padding>
+      <button ion-button type="submit">Save</button>
+      <button ion-button type="button">Tomar foto</button>
+    </div>
   </form>
   <button ion-button (click)="goToHomePage()">Home</button>
 </ion-content>
