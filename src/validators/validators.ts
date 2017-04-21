@@ -1,6 +1,15 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, AbstractControl } from '@angular/forms';
 
 export class MyValidators{
+
+  static matchPassword(group: AbstractControl){
+    let password = group.get('password').value;
+    let confirmPassword = group.get('confirmPassword').value;
+    if(password === confirmPassword){
+      return null;
+    }
+    return {'nomatch':true}
+  }
 
   static isYoung(control: FormControl){
     let age = control.value;

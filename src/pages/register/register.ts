@@ -28,6 +28,8 @@ export class RegisterPage {
       passwordGroup: this.formBuilder.group({
         password: ['',[Validators.required, Validators.minLength(6)]],
         confirmPassword: ['',[Validators.required, Validators.minLength(6)]],
+      },{
+        validator: MyValidators.matchPassword
       }),
       age: ['', [Validators.required, MyValidators.isYoung]],
       phone: [''],

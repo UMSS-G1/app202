@@ -57,6 +57,9 @@
           <p *ngIf="loginForm.get('passwordGroup').get('confirmPassword').hasError('required')" ion-text color="danger">Este campo es requerido</p>
           <p *ngIf="loginForm.get('passwordGroup').get('confirmPassword').hasError('minlength')" ion-text color="danger">Este campo debe ser mayor a 6</p>
         </ion-item>
+        <ion-item *ngIf="loginForm.get('passwordGroup').errors && loginForm.get('passwordGroup').get('confirmPassword').dirty">
+          <p ion-text color="danger">la contreña no coincide</p>
+        </ion-item>
       </div>
       <ion-item>
         <ion-label stacked>Age:</ion-label>
