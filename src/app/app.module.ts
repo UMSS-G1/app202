@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { AlbumsService } from '../providers/albums-service';
+import { UsersService } from '../providers/users-service';
 
 import { MyApp } from './app.component';
 
@@ -36,6 +37,7 @@ const ionicConfig = {
     StatusBar,
     SplashScreen,
     AlbumsService,
+    UsersService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
