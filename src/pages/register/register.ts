@@ -25,6 +25,10 @@ export class RegisterPage {
       email: ['',[Validators.required, Validators.email]],
       lastname: [''],
       username: [''],
+      passwordGroup: this.formBuilder.group({
+        password: ['',[Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['',[Validators.required, Validators.minLength(6)]],
+      }),
       age: ['', [Validators.required, MyValidators.isYoung]],
       phone: [''],
       date: [''],

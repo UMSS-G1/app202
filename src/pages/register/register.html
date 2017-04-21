@@ -40,6 +40,24 @@
         <ion-label stacked>username:</ion-label>
         <ion-input formControlName="username" placeholder="Digite su usermae"></ion-input>
       </ion-item>
+      <div formGroupName="passwordGroup">
+        <ion-item>
+          <ion-label stacked>Password:</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="loginForm.get('passwordGroup').get('password').errors && loginForm.get('passwordGroup').get('password').dirty">
+          <p *ngIf="loginForm.get('passwordGroup').get('password').hasError('required')" ion-text color="danger">Este campo es requerido</p>
+          <p *ngIf="loginForm.get('passwordGroup').get('password').hasError('minlength')" ion-text color="danger">Este campo debe ser mayor a 6</p>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Confirm Password:</ion-label>
+          <ion-input type="password" formControlName="confirmPassword"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="loginForm.get('passwordGroup').get('confirmPassword').errors && loginForm.get('passwordGroup').get('confirmPassword').dirty">
+          <p *ngIf="loginForm.get('passwordGroup').get('confirmPassword').hasError('required')" ion-text color="danger">Este campo es requerido</p>
+          <p *ngIf="loginForm.get('passwordGroup').get('confirmPassword').hasError('minlength')" ion-text color="danger">Este campo debe ser mayor a 6</p>
+        </ion-item>
+      </div>
       <ion-item>
         <ion-label stacked>Age:</ion-label>
         <ion-input formControlName="age" type="number" placeholder="Digite su edad"></ion-input>
