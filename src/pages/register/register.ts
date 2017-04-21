@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { MyValidators } from '../../validators/validators';
+
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -23,7 +25,7 @@ export class RegisterPage {
       email: ['',[Validators.required, Validators.email]],
       lastname: [''],
       username: [''],
-      age: [''],
+      age: ['', [Validators.required, MyValidators.isYoung]],
       phone: [''],
       date: [''],
       bio: [''],

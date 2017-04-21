@@ -44,6 +44,10 @@
         <ion-label stacked>Age:</ion-label>
         <ion-input formControlName="age" type="number" placeholder="Digite su edad"></ion-input>
       </ion-item>
+      <ion-item  *ngIf="loginForm.get('age').errors && loginForm.get('age').dirty">
+        <p *ngIf="loginForm.get('age').hasError('required')" ion-text color="danger">El campo es requerido</p>
+        <p *ngIf="loginForm.get('age').hasError('isyoung')" ion-text color="danger">eres un bebe</p>
+      </ion-item>
       <ion-item>
         <ion-label stacked>Telefono:</ion-label>
         <ion-input formControlName="phone" type="tel" placeholder="Digite su telefono"></ion-input>
