@@ -26,7 +26,7 @@ export class RegisterPage {
       name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
       email: ['',[Validators.required, Validators.email]],
       lastname: [''],
-      username: [''],
+      username: ['', [Validators.required], [this.validateUserName()]],
       passwordGroup: this.formBuilder.group({
         password: ['',[Validators.required, Validators.minLength(6)]],
         confirmPassword: ['',[Validators.required, Validators.minLength(6)]],
@@ -82,7 +82,7 @@ export class RegisterPage {
     */
   }
 
-  validateUserName(control: FormControl){
+  validateUserName(){
     /*version 1
     let promise = new Promise((resolve, reject)=>{
       setTimeout(()=>{
@@ -98,16 +98,25 @@ export class RegisterPage {
         resolve("todo salio bien");
       }, 10000);
     });*/
-    let username = control.value;
-    return new Promise((resolve, reject)=>{
-      //code de la data
-      let result = this.usersService.checkUsername(username);
-      if(result === -1){
-        reject("no encontrado");
-      }else{
-        resolve("el usuario ya esta");
-      }
-    });
+    return (control: FormControl)=>{
+      let username = control.value;
+      return new Promise((resolve, reject)=>{
+        //code de la data
+        //sin llamar a un servicio
+        if(username == 'nicolas'){
+          resolve({'userduplicate': true});
+        }else{
+          resolve(null);
+        }
+        //con llamar a un servicio
+        // let result = this.usersService.checkUsername(username);
+        // if(result === -1){
+        //   resolve(null);
+        // }else{
+        //   resolve({'userduplicate': true});
+        // }
+      });
+    }
   }
 
 }

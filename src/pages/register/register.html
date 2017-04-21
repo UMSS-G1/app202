@@ -41,6 +41,9 @@
         <ion-label stacked>username:</ion-label>
         <ion-input formControlName="username" placeholder="Digite su usermae"></ion-input>
       </ion-item>
+      <ion-item *ngIf="loginForm.get('username').errors && loginForm.get('username').dirty">
+        <p *ngIf="loginForm.get('username').hasError('userduplicate')" color="danger" ion-text>el usuario ya existe</p>
+      </ion-item>
       <div formGroupName="passwordGroup">
         <ion-item>
           <ion-label stacked>Password:</ion-label>
