@@ -48,6 +48,11 @@ export class MyApp {
       title: 'Slides',
       icon: 'people',
       component: 'SlidesPage'
+    },
+    {
+      title: 'Users',
+      icon: 'people',
+      component: 'UsersPage'
     }
   ];
 
