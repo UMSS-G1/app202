@@ -4,8 +4,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { HttpModule } from '@angular/http';
+
 import { AlbumsService } from '../providers/albums-service';
 import { UsersService } from '../providers/users-service';
+import { TasksService } from '../providers/tasks-service';
 
 import { MyApp } from './app.component';
 
@@ -27,6 +30,7 @@ const ionicConfig = {
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp, ionicConfig)
   ],
   bootstrap: [IonicApp],
@@ -38,6 +42,7 @@ const ionicConfig = {
     SplashScreen,
     AlbumsService,
     UsersService,
+    TasksService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

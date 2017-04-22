@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-//import { Http } from '@angular/http';
-//import 'rxjs/add/operator/map';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UsersService {
@@ -15,8 +16,16 @@ export class UsersService {
     'user7',
   ];
 
-  constructor() {
+  constructor(
+    public http: Http
+  ) {
     console.log('Hello UsersService Provider');
+  }
+
+  getAll(){
+    return this.http.get('https://randomuser.me/api/?results=50')
+    .map(response => response.json())
+    .toPromise();
   }
 
   checkUsername(username: string){
