@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { TasksService } from '../../providers/tasks-service';
 
@@ -15,7 +15,8 @@ export class TasksPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public tasksService: TasksService
+    public tasksService: TasksService,
+    public alertCtrl: AlertController
   ) {
   }
 
@@ -23,6 +24,50 @@ export class TasksPage {
     this.tasksService.getAll()
     .then(data=>{
       this.tasks = data;
+    })
+    .catch(error =>{
+      console.error(error);
+    });
+  }
+
+  showAlert(){
+    let alert = this.alertCtrl.create({
+      title: 'Crear tarea',
+      message: 'Digite la nueva tarea',
+      inputs: [
+        {
+          type: 'text',
+          name: 'title',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Guardar',
+          handler: (data)=>{
+            this.createTask(data.title);
+          }
+        },
+        {
+          text: 'Cerrar',
+          role: 'cancel',
+          handler: ()=>{
+            console.log('cancelar');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  private createTask(title: string){
+    let newTask: any = {
+      title: title,
+      completed: false
+    };
+    this.tasksService.create(newTask)
+    .then(data =>{
+      newTask.id = data.id;
+      this.tasks.unshift( newTask );
     })
     .catch(error =>{
       console.error(error);

@@ -1,9 +1,14 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>tasks</ion-title>
     <button menuToggle ion-button>
       <ion-icon name="menu"></ion-icon>
     </button>
+    <ion-buttons end>
+      <button (click)="showAlert()" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
