@@ -20,9 +20,13 @@
         <ion-checkbox [checked]="task.completed"></ion-checkbox>
       </ion-item>
       <ion-item-options>
-        <button (click)="taskAlert( task, i )" ion-button>
+        <button (click)="showAlertEdit( task, i )" ion-button>
           <ion-icon name="create"></ion-icon>
           Editar
+        </button>
+        <button color="danger" (click)="showAlertDelete( task, i )" ion-button>
+          <ion-icon name="trash"></ion-icon>
+          Borrar
         </button>
       </ion-item-options>
     </ion-item-sliding>

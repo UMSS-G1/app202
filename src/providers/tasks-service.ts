@@ -33,4 +33,10 @@ export class TasksService {
     .toPromise();
   }
 
+  delete(id: number){
+    return this.http.delete(`${this.url}/${id}`)
+    .map(response => response.json())
+    .toPromise();
+  }
+
 }
