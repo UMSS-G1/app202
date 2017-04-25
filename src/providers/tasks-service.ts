@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class TasksService {
 
-  url: string = 'http://jsonplaceholder.typicode.com/todos';
+  url: string = 'https://jsonplaceholder.typicode.com/todos';
 
   constructor(
     public http: Http
@@ -21,6 +21,14 @@ export class TasksService {
   create(task: any){
     let body = JSON.stringify(task);
     return this.http.post(this.url, body)
+    .map(response => response.json())
+    .toPromise();
+  }
+
+  update(task: any){
+    let body = JSON.stringify(task);
+    //this.http.put(this.url+ '/' + task.id, body)
+    return this.http.put(`${this.url}/${task.id}`,body)
     .map(response => response.json())
     .toPromise();
   }
