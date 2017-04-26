@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SQLite } from '@ionic-native/sqlite';
+import { TasksSqlService } from '../providers/tasks-sql-service';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,6 +32,11 @@ export class MyApp {
       index: 1
     },
     {
+      title: 'Tasks Sqlite',
+      icon: 'list',
+      component: 'TasksSqlPage'
+    },
+    {
       title: 'Albums',
       icon: 'camera',
       component: 'AlbumsPage'
@@ -56,12 +63,19 @@ export class MyApp {
     }
   ];
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public sqlite: SQLite,
+    public tasksSqlService: TasksSqlService
+  ) {
+    this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+      this.createDatabase();
     });
   }
 
@@ -77,6 +91,20 @@ export class MyApp {
 
   logout(){
     this.navMaster.setRoot('TutorialPage');
+  }
+
+  private createDatabase(){
+    this.sqlite.create({
+      name: 'data.db',
+      location: 'default'
+    })
+    .then(db=>{
+      this.tasksSqlService.setDatabase(db);
+      this.tasksSqlService.createTable();
+    })
+    .catch(error =>{
+      console.log(error);
+    });
   }
 }
 

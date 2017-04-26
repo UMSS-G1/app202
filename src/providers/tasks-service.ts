@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+
+import { MY_TOKEN } from './settings';
 
 @Injectable()
 export class TasksService {
@@ -28,15 +30,25 @@ export class TasksService {
   update(task: any){
     let body = JSON.stringify(task);
     //this.http.put(this.url+ '/' + task.id, body)
-    return this.http.put(`${this.url}/${task.id}`,body)
+    return this.http.put(`${this.url}/${task.id}`,body, {
+      headers: this.makeHeader()
+    })
     .map(response => response.json())
     .toPromise();
   }
 
   delete(id: number){
-    return this.http.delete(`${this.url}/${id}`)
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: this.makeHeader()
+    })
     .map(response => response.json())
     .toPromise();
+  }
+
+  private makeHeader(){
+    let headers = new Headers();
+    headers.append('Authorization', MY_TOKEN);
+    return headers;
   }
 
 }

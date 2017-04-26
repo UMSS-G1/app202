@@ -131,6 +131,7 @@ export class TasksPage {
   }
 
   private updateTask(task: any, position: number){
+
     this.tasksService.update(task)
     .then(data =>{
       this.tasks[position] = task;
