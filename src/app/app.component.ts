@@ -37,6 +37,16 @@ export class MyApp {
       component: 'TasksSqlPage'
     },
     {
+      title: 'Tasks Local',
+      icon: 'list',
+      component: 'TasksLocalPage'
+    },
+    {
+      title: 'Tasks Firebase',
+      icon: 'list',
+      component: 'TasksFirebasePage'
+    },
+    {
       title: 'Albums',
       icon: 'camera',
       component: 'AlbumsPage'
