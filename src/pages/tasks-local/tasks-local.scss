@@ -1,3 +1,16 @@
 page-tasks-local {
+  
+  ion-item {
+    ion-label{
+      background-color: color($colors, primary);
+    }
+  }
+  
+  .toolbar-md-primary{
+    .toolbar-title-md{
+      color: $background;
+    }
+  }
 
+  
 }

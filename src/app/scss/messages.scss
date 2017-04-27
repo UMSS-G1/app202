@@ -1,0 +1,28 @@
+div.message{
+  padding: $padding;
+  margin: 4px;
+  border: 1px solid black;
+  p{
+    font-style: italic;
+  }
+}
+
+@mixin opacar($color){
+  background-color: rgba($color, .4);
+}
+
+div.success{
+  @extend .message;
+  border-color: $color-success;
+  @include opacar($color-success);
+}
+div.info{
+  @extend .message;
+  border-color: $color-info;
+  @include opacar($color-info);
+}
+div.danger{
+  @extend .message;
+  border-color: $color-danger;
+  @include opacar($color-danger);
+}

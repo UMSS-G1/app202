@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content padding>
+  <img *ngIf="image !== null" [src]="image" alt="avatar">
+  <button ion-button block (click)="takePicture()">Selfie!!!!</button>
+
   <button ion-button (click)="goToLoginPage()">Login</button>
   <button ion-button (click)="goToRegisterPage()">Register</button>
   <ion-grid>
