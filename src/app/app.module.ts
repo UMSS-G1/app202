@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SQLite } from '@ionic-native/sqlite';
 import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 
 import { HttpModule } from '@angular/http';
@@ -45,6 +49,24 @@ const ionicConfig = {
   }
 };
 
+const cloudConfig = {
+  'core': {
+    'app_id': '1b628511'
+  },
+  'push': {
+    'sender_id': '564553849534',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+}
+
 @NgModule({
   declarations: [
     MyApp
@@ -54,7 +76,8 @@ const ionicConfig = {
     HttpModule,
     IonicModule.forRoot(MyApp, ionicConfig),
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    CloudModule.forRoot( cloudConfig )
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,6 +88,8 @@ const ionicConfig = {
     SplashScreen,
     SQLite,
     Camera,
+    Geolocation,
+    GoogleMaps,
     AlbumsService,
     UsersService,
     TasksService,

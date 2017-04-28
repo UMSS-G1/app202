@@ -31,7 +31,7 @@ export class TutorialPage {
     let options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.CAMERA,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       allowEdit: true,
       targetWidth: 500,
       targetHeight: 500

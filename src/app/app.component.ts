@@ -5,13 +5,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SQLite } from '@ionic-native/sqlite';
 import { TasksSqlService } from '../providers/tasks-sql-service';
 
+import {
+  Push,
+  PushToken
+} from '@ionic/cloud-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
 
   @ViewChild(Nav) navMaster: Nav;
-  rootPage:any = 'TutorialPage';
+  rootPage:any = 'MapsPage';
 
   pages: any[] = [
     {
@@ -78,7 +83,8 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public sqlite: SQLite,
-    public tasksSqlService: TasksSqlService
+    public tasksSqlService: TasksSqlService,
+    public push: Push
   ) {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -86,6 +92,8 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.createDatabase();
+      this.registerToken();
+      this.listenerNotifications();
     });
   }
 
@@ -115,6 +123,25 @@ export class MyApp {
     .catch(error =>{
       console.log(error);
     });
+  }
+
+  private registerToken(){
+    this.push.register()
+    .then(token=>{
+      this.push.saveToken(token,{
+        ignore_user: true
+      });
+    })
+    .catch(error =>{
+      console.log( error );
+    })
+  }
+
+  private listenerNotifications(){
+    this.push.rx.notification()
+    .subscribe(message =>{
+      alert(message.title + ' ' + message.text);
+    })
   }
 }
 
